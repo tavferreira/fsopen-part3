@@ -46,6 +46,9 @@ const App = () => {
                                       setNotification(`Added ${returnedPerson.name}`,'info')
                                       clearNotification()
                                     })
+                                    .catch(error => {
+                                      setNotification(error.response.data.error,'error')
+                                    })  
 
   const updatePerson = (personToUpdate) => {
     if(window.confirm(`${personToUpdate.name} is already added to the phonebook, replace the old number with a new one?`)) {
@@ -54,6 +57,9 @@ const App = () => {
         .then(updatedPerson => {
           const newPersons = persons.map(person => person.id !== personToUpdate.id ? person : updatedPerson)
           setPersons(newPersons)
+        })
+        .catch(error => {
+          setNotification(error.response.data.error,'error')
         })
       clearInputs()
     }
