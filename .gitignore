@@ -1,4 +1,6 @@
 phonebook-backend/node_modules/
 phonebook-frontend/node_modules/
 phonebook-backend/.env
+phonebook-backend/dist/
+phonebook-frontend/dist/
 
